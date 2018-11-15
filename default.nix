@@ -54,7 +54,7 @@ let
     };
   };
 in stdenv.mkDerivation {
-  name = "sailfishos-sdk";
+  name = "sailfish-sdk";
 
   srcs = [
     srcs.${stdenv.hostPlatform.system}.qtcreator
