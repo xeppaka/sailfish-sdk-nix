@@ -61,31 +61,39 @@ in stdenv.mkDerivation {
     srcs.${stdenv.hostPlatform.system}.qmllive
     srcs.${stdenv.hostPlatform.system}.sdkmaintenance
     srcs.${stdenv.hostPlatform.system}.gdb
-    srcs.${stdenv.hostPlatform.system}.emulator
-    srcs.${stdenv.hostPlatform.system}.mersdk
     srcs.${stdenv.hostPlatform.system}.sailfish-ambience-template
     srcs.${stdenv.hostPlatform.system}.sailfish-qml-template
     srcs.${stdenv.hostPlatform.system}.sailfish-template
+    ./scripts
   ];
   buildInputs = [ qt5.qtbase qt5.qtxmlpatterns qt5.qtquickcontrols2 qt5.qttools qt5.qtwebkit gtk2 gcc pango ncurses5 ];
   nativeBuildInputs = [ autoPatchelfHook p7zip ];
   #runtimeDependencies = openssl.out;
   dontPatchELF = true;
   dontStrip = true;
-  dontBuild = true;
+  sourceRoot = "sailfish-sdk";
+  emulator = srcs.${stdenv.hostPlatform.system}.emulator;
+  mersdk = srcs.${stdenv.hostPlatform.system}.mersdk;
+  packageExtractor = p7zip;
 
   unpackCmd = ''
     7z -osailfish-sdk x $curSrc
   '';
 
+  buildPhase = ''
+    cp ../scripts/install-sdk.sh .
+    substituteAllInPlace install-sdk.sh
+  '';
+
   installPhase = ''
     mkdir -p $out
-    cp -R bin emulator lib libexec  mersdk qmllive-examples share $out
+    cp -R bin lib libexec qmllive-examples share install-sdk.sh $out
     cp -R sailfishos-ambience sailfishos-qtquick2app sailfishos-qtquick2app-qmlonly $out/share/qtcreator/templates/wizards
     runHook postInstall
   '';
 
   postInstall = ''
+    chmod +x $out/install-sdk.sh
     rm $out/bin/python/lib/python2.7/config/python.o
   '';
 
