@@ -57,7 +57,7 @@ in stdenv.mkDerivation {
     srcs.${stdenv.hostPlatform.system}.sailfish-template
     ./scripts
   ];
-  buildInputs = [ qt5.qtbase qt5.qtxmlpatterns qt5.qtquickcontrols2 qt5.qttools qt5.qtwebkit gtk2 gcc pango ncurses5 ];
+  buildInputs = [ qt5.qtbase qt5.qtxmlpatterns qt5.qtquickcontrols2 qt5.qttools qt5.qtwebkit gtk3 gcc pango ncurses5 wayland xorg.libXtst ];
   nativeBuildInputs = [ autoPatchelfHook p7zip ];
   #runtimeDependencies = openssl.out;
   dontPatchELF = true;
