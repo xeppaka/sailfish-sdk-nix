@@ -4,52 +4,43 @@ with (import <nixpkgs> {});
 #qt5, gtk2, pango, p7zip }:
 
 let
-  qtcreator-version = "4.6.2-1";
-  qmllive-version = "0.1.0-8";
-  sdkmaintenance-version = "1.5.28-27";
-  gdb-version = "7.6.2-2";
-  emulator-version = "2018.08.31-1";
-  mersdk-version = "2018.08.31-1";
-  sailfish-ambience-template-version = "2018.07.04-1";
-  sailfish-qml-template-version = "2018.07.04-1";
-  sailfish-template-version = "2018.07.04-1";
   srcs = {
     x86_64-linux = {
       qtcreator = fetchurl {
-        url = "http://releases.sailfishos.org/sdk/repository-ea/linux-64/org.merproject.qtcreator/${qtcreator-version}qtcreator.7z";
-        sha1 = "a3603776eabc4dbb77b45b9d5128e443f1810379";
+        url = "http://releases.sailfishos.org/sdk/repository-ea/linux-64/org.merproject.qtcreator/4.7.2-2qtcreator.7z";
+        sha1 = "e64c8c684899c024cc6395962c9094ed77ade915";
       };
       qmllive = fetchurl {
-        url = "http://releases.sailfishos.org/sdk/repository-ea/linux-64/org.merproject.qmllive/${qmllive-version}qmllive.7z";
-        sha1 = "f1a5c6de4dd0ff3f25bf7c868c1fb42ec7edf7bd";
+        url = "http://releases.sailfishos.org/sdk/repository-ea/linux-64/org.merproject.qmllive/0.1.0-9qmllive.7z";
+        sha1 = "1069c13f3f6b1a8a451c11a0a02308c339eac14b";
       };
       sdkmaintenance = fetchurl {
-        url = "http://releases.sailfishos.org/sdk/repository-ea/linux-64/org.merproject.maintenance/${sdkmaintenance-version}sdkmaintenance.7z";
-        sha1 = "aa6d9598e69e936ffb29d4e99a616be007b4cbf5";
+        url = "http://releases.sailfishos.org/sdk/repository-ea/linux-64/org.merproject.maintenance/1.5.28-29sdkmaintenance.7z";
+        sha1 = "11189381fb51468dfba218c77d63a1ffc203cd0e";
       };
       gdb = fetchurl {
-        url = "http://releases.sailfishos.org/sdk/repository-ea/linux-64/org.merproject.tools.gdb/${gdb-version}gdb.7z";
-        sha1 = "940df3bf6460d99b78e6391e35f2b8b1517dec71";
+        url = "http://releases.sailfishos.org/sdk/repository-ea/linux-64/org.merproject.tools.gdb/7.6.2-3gdb.7z";
+        sha1 = "cb40b7a9371b5cbbc673e5a2176e396655daa555";
       };
       emulator = fetchurl {
-        url = "http://releases.sailfishos.org/sdk/repository-ea/common/org.merproject.emulator/${emulator-version}emulator.7z";
-        sha1 = "a5fba28ca037b93339f0ed745d27fbf8cb291ca1";
+        url = "http://releases.sailfishos.org/sdk/repository-ea/common/org.merproject.emulator/2019.01.04-1emulator.7z";
+        sha1 = "197d719d1787807d7dc6babbcb62ed8e902167a3";
       };
       mersdk = fetchurl {
-        url = "http://releases.sailfishos.org/sdk/repository-ea/common/org.merproject.mersdk/${mersdk-version}mersdk.7z";
-        sha1 = "b11868b606d9aa13fb3895974989737d915e2a37";
+        url = "http://releases.sailfishos.org/sdk/repository-ea/common/org.merproject.mersdk/2019.01.04-1mersdk.7z";
+        sha1 = "8a0b2775d5b58ab66b8faa1602f7107df6e44a48";
       };
       sailfish-ambience-template = fetchurl {
-        url = "http://releases.sailfishos.org/sdk/repository-ea/common/org.merproject.examples.sailfishtemplate/${sailfish-ambience-template-version}sailfish-ambience-template.7z";
-        sha1 = "1cc822bece5ede78b1d409a2314c66443682de5c";
+        url = "http://releases.sailfishos.org/sdk/repository-ea/common/org.merproject.examples.sailfishtemplate/2019.01.16-1sailfish-ambience-template.7z";
+        sha1 = "fb5cc7add4f3d3b4b7152ddcf7b0b4ff5f19db51";
       };
       sailfish-qml-template = fetchurl {
-        url = "http://releases.sailfishos.org/sdk/repository-ea/common/org.merproject.examples.sailfishtemplate/${sailfish-qml-template-version}sailfish-qml-template.7z";
-        sha1 = "de4caeae250968585645e486d103af71c5f616ef";
+        url = "http://releases.sailfishos.org/sdk/repository-ea/common/org.merproject.examples.sailfishtemplate/2019.01.16-1sailfish-qml-template.7z";
+        sha1 = "3dadc86c1094e85b086ddde1cb576866ba50200e";
       };
       sailfish-template = fetchurl {
-        url = "http://releases.sailfishos.org/sdk/repository-ea/common/org.merproject.examples.sailfishtemplate/${sailfish-template-version}sailfish-template.7z";
-        sha1 = "ce7579be6654e6d5a9a6d545a2a588e2fb93c5d5";
+        url = "http://releases.sailfishos.org/sdk/repository-ea/common/org.merproject.examples.sailfishtemplate/2019.01.16-1sailfish-template.7z";
+        sha1 = "46b7966165e0637c5033616c482fad484fc49d9c";
       };
     };
   };
