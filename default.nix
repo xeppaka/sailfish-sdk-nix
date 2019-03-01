@@ -73,12 +73,16 @@ in stdenv.mkDerivation {
 
   buildPhase = ''
     cp ../scripts/install-sdk.sh .
+    cp ../scripts/create-vbox-emulator.sh .
+    cp ../scripts/create-vbox-build-engine.sh .
     substituteAllInPlace install-sdk.sh
+    substituteAllInPlace create-vbox-emulator.sh
+    substituteAllInPlace create-vbox-build-engine.sh
   '';
 
   installPhase = ''
     mkdir -p $out
-    cp -R bin lib libexec qmllive-examples share install-sdk.sh $out
+    cp -R bin lib libexec qmllive-examples share install-sdk.sh create-vbox-emulator.sh create-vbox-build-engine.sh $out
     cp -R sailfishos-ambience sailfishos-qtquick2app sailfishos-qtquick2app-qmlonly $out/share/qtcreator/templates/wizards
     runHook postInstall
   '';

@@ -29,3 +29,7 @@ rm -f $INSTALL_DIR/mersdk/targets/targets.xml
 printf "Creating MER targets...\n"
 $INSTALL_DIR/libexec/qtcreator/sdktool addMerTarget --mer-targets-dir "$INSTALL_DIR/mersdk/targets" --target-name "SailfishOS-3.0.1.11-i486" --qmake-query "$INSTALL_DIR/mersdk/dumps/qmake.query.SailfishOS-3.0.1.11-i486" --gcc-dumpmachine "$INSTALL_DIR/mersdk/dumps/gcc.dumpmachine.SailfishOS-3.0.1.11-i486"
 $INSTALL_DIR/libexec/qtcreator/sdktool addMerTarget --mer-targets-dir "$INSTALL_DIR/mersdk/targets" --target-name "SailfishOS-3.0.1.11-armv7hl" --qmake-query "$INSTALL_DIR/mersdk/dumps/qmake.query.SailfishOS-3.0.1.11-armv7hl" --gcc-dumpmachine "$INSTALL_DIR/mersdk/dumps/gcc.dumpmachine.SailfishOS-3.0.1.11-armv7hl"
+printf "Creating Sailfish OS virtual machine...\n"
+./create-vbox-emulator.sh $INSTALL_DIR
+printf "Creating Sailfish OS build engine virtual machine...\n"
+./create-vbox-build-engine.sh $INSTALL_DIR
